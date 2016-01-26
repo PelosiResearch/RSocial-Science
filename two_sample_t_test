@@ -1,0 +1,41 @@
+# TWO SAMPLE T-TEST SCRIPT
+
+#Does the difference in means of two groups (say, x, y) differ from 0?
+
+#Data should be normal, and sample variances equal
+
+##############################################################################
+PRACTICAL 1
+
+#Create two vectors, length = 10
+
+x<-c(33, 44, 22.9, 41,6, 39.8, 49.6, 50, 36.3, 27, 31)
+
+y<-c(38.4, 29.7, 41.6, 50, 50, 29.8, 33.6, 37.8, 41.9, 48)
+
+#Run the two sample t-test, two sided
+t.test(x, y, alternative = "two.sided", var.equal=TRUE)
+
+#Results
+# p-value = .25
+#null = true difference in means is equal to zero
+#Conf. intervlas = -15.27159, 4.31159
+#Do not reject the null. We find evidence for the alternaivte
+#Alternative = true difference in means is not equal to 0
+
+
+###############################################################################
+PRACTICAL 2
+
+#Use the same vectors
+
+#Run the two-sample one sided t-test
+
+t.test(x, y, alternative ="greater", var.equal=TRUE)
+
+#Results
+#p value = .87
+#Conf. intervals = -13.57, Inf
+#null = true difference in means is not greater than zero
+#DO not reject the null. There is evidence for the alternative hypth.
+#Alternative = true difference in means is greater than 0
