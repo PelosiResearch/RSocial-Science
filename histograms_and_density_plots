@@ -1,0 +1,53 @@
+#RJournal Histograms
+
+#histogram of data with main label = precipitation
+hist(precip, main="Precipitation")
+
+#histogram of data witout main label
+hist(precip, main="")
+
+#histogram where FREQ = FALSE
+hist(precip, freq=FALSE, main="")
+
+#freq = FALSE makes a relative frequency histogram
+#Leaving out freq=FALSE makes a standard frequency histogram 
+hist(precip, freq=TRUE, main="")
+
+#Adding in different breaks creates a different histogram. Try them all
+hist(precip, breaks=1, main="")
+hist(precip, breaks=10, main="")
+hist(precip, breaks=20, main="")
+hist(precip, breaks=50, main="")
+
+#We will use default bins. More R packages exist that will pick bins for you
+hist(precip, col="blue")
+#Now, let's add an x-axis label
+hist(precip, col="blue", xlab="precipitation")
+#Finally, we will add a main label
+hist(precip, col="blue", xlab="precipitation", main="Histogram of Precipitation")
+
+#There is more to histograms, but the main reason why you would use a histogram is?
+#To see if data is normally distributed
+#Density plots are a MUCH MUCH better option
+#Why? Histograms are far to influenced by bins selection
+
+######################################################################################
+DENSITY PLOTS
+##############################################################################
+
+#What are the precipitations in warm areas in America?
+
+#let's get names
+names(precip)
+
+#We will create a vector of a few places.
+list=precip[c(1,3,5,6,13,14,15,23,36,58,59,60,70)]
+
+#create a density list from the old list
+dens_list = density(list)
+
+#plot the dens_list
+plot(dens_list)
+
+#Now, let's make it pretty
+polygon(dens_list, col="blue", border="black")
